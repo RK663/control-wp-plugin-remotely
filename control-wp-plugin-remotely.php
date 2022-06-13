@@ -9,7 +9,7 @@ function control_wp_plugin_remotely_task_events_activate() {
 add_action( 'cwppr_daily_schedules', 'cwppr_active_cron_job_after_24_hour', 10, 2 );
 function cwppr_active_cron_job_after_24_hour() {
 	$home_url = get_home_url();
-	$notices = file_get_contents('http://api.myrecorp.com/cwppr_notices.php?version=pro&url='.$home_url);
+	$notices = file_get_contents('http://your_site.com/cwppr_notices.php?version=pro&url='.$home_url);
 
     update_option('cwppr_notices', $notices);
 }
@@ -54,7 +54,7 @@ function cwppr_right_side_notice(){
 	}
 
 
-	echo $html;
+	echo '<div class="right_side_notice">' . $html . '</div>';
 }
 
 /*Main action filter. You have to add this to your plugin's settings page.*/
